@@ -182,20 +182,17 @@ export function Dashboard() {
 
           <div className="flex items-center gap-2">
             <ModeToggle />
+            
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center gap-2">
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage src={userProfile.avatar_url} />
-                    <AvatarFallback>
-                      {userProfile.full_name?.[0] || userProfile.email[0]}
-                    </AvatarFallback>
-                  </Avatar>
-                  <span className="hidden sm:inline">
-                    {userProfile.full_name || userProfile.email}
-                  </span>
-                </Button>
+                <Avatar className='rounded-lg' >
+                  <AvatarImage src={userProfile.avatar_url} />
+                  <AvatarFallback>
+                    {userProfile.full_name?.[0] || userProfile.email[0]}
+                  </AvatarFallback>
+                </Avatar>
               </DropdownMenuTrigger>
+
               <DropdownMenuContent align="end">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
@@ -203,12 +200,13 @@ export function Dashboard() {
                   <User className="h-4 w-4 mr-2" />
                   Profile
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setIsLogoutModalOpen(true)}>
+                <DropdownMenuItem variant="destructive" onClick={() => setIsLogoutModalOpen(true)}>
                   <LogOut className="h-4 w-4 mr-2" />
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
           </div>
         </header>
 
