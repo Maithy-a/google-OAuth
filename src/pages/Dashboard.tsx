@@ -182,7 +182,7 @@ export function Dashboard() {
 
           <div className="flex items-center gap-2">
             <ModeToggle />
-            
+
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Avatar className='rounded-lg' >
@@ -211,23 +211,25 @@ export function Dashboard() {
         </header>
 
         <main className="flex-1 px-4 py-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className='text-2xl' >Welcome, {userProfile.full_name || userProfile.email}!</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                You’re logged in with: <span className="font-medium">{userProfile.email}</span>
-              </p>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
+            <Card>
+              <CardHeader>
+                <CardTitle className='text-2xl' >Welcome, {userProfile.full_name || userProfile.email}!</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  You’re logged in with: <span className="font-medium">{userProfile.email}</span>
+                </p>
 
-              <div className="mt-4 flex flex-wrap gap-2">
-                <Button onClick={() => navigate('/profile')}>Edit Profile</Button>
-                <Button variant="destructive" onClick={() => setIsLogoutModalOpen(true)}>
-                  Logout
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <Button onClick={() => navigate('/profile')}>Edit Profile</Button>
+                  <Button variant="destructive" onClick={() => setIsLogoutModalOpen(true)}>
+                    Logout
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div className="bg-card rounded-xl border p-4">
