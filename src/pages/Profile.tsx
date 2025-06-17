@@ -118,7 +118,7 @@ export function Profile() {
                     </div>
                     <div>
                         <Label htmlFor="email">Email (read-only)</Label>
-                        <Input id="email" value={email} disabled  className='mt-2'/>
+                        <Input id="email" value={email} disabled className='mt-2' />
                     </div>
                     <div>
                         <Label htmlFor="fullName">Full Name</Label>

@@ -165,9 +165,8 @@ export function Dashboard() {
         />
       )}
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col">
 
+      <div className="flex-1 flex flex-col">
         <header className="border-b border-border px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Button
@@ -211,10 +210,8 @@ export function Dashboard() {
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-
         </header>
 
-        {/* Content */}
         <main className="flex-1 px-4 py-6">
           <Card>
             <CardHeader>
@@ -224,6 +221,7 @@ export function Dashboard() {
               <p className="text-sm text-muted-foreground">
                 You’re logged in with: <span className="font-medium">{userProfile.email}</span>
               </p>
+
               <div className="mt-4 flex flex-wrap gap-2">
                 <Button onClick={() => navigate('/profile')}>Edit Profile</Button>
                 <Button variant="destructive" onClick={() => setIsLogoutModalOpen(true)}>
@@ -236,10 +234,6 @@ export function Dashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
             <div className="bg-card rounded-xl border p-4">
               <h3 className="text-lg font-semibold mb-2 text-foreground">Performance Overview A</h3>
-              <RadarChartComponent />
-            </div>
-            <div className="bg-card rounded-xl border p-4">
-              <h3 className="text-lg font-semibold mb-2 text-foreground">Performance Overview B</h3>
               <RadarChartComponent />
             </div>
           </div>
