@@ -62,7 +62,7 @@ export function Dashboard() {
 
         if (profileError && profileError.code !== 'PGRST116') throw profileError
 
-        // If avatar_url is not in the profile, update it from Google
+        // update from Google
         if (!profile?.avatar_url && googleAvatar) {
           await supabase
             .from('profiles')
@@ -121,8 +121,7 @@ export function Dashboard() {
       <aside
         ref={sidebarRef}
         className={`fixed inset-y-0 left-0 z-50 w-64 bg-background border-r border-border transform transition-transform duration-300 ease-in-out ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-          } md:static md:translate-x-0`}
-      >
+          } md:static md:translate-x-0`} >
         <div className="flex items-center justify-between p-4 border-b border-border">
           <h2 className="text-lg font-semibold">KaasHub</h2>
           <Button
@@ -237,12 +236,10 @@ export function Dashboard() {
               <RadarChartComponent />
             </div>
           </div>
-
-
+          
         </main>
       </div>
 
-      {/* Logout Dialog */}
       <Dialog open={isLogoutModalOpen} onOpenChange={setIsLogoutModalOpen}>
         <DialogContent>
           <DialogHeader>

@@ -74,7 +74,6 @@ export function LoginForm({
     }
   }
 
-
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card className="overflow-hidden p-0">
@@ -101,6 +100,7 @@ export function LoginForm({
                   type="email"
                   placeholder="mikeanderson@gmail.com"
                   value={email}
+                  autoComplete="true"
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
@@ -119,14 +119,18 @@ export function LoginForm({
                 <Input
                   id="password"
                   type="password"
-                  value={password}
+                  value={password}                 
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
 
               <Button type="submit" className="w-full" disabled={isLoading}>
-                {isLoading ? 'Processing...' : isSignup ? 'Sign Up' : 'Login'}
+                {isLoading ? (
+                  <div className="flex items-center justify-center">
+                    <div className="w-5 h-5 border-2 border-t-transparent border-white rounded-full animate-spin"></div>
+                  </div>
+                ) : isSignup ? 'Sign Up' : 'Login'}
               </Button>
 
               <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
@@ -187,7 +191,7 @@ export function LoginForm({
             <img
               src={loginImage}
               alt="Image"
-              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+              className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.5]"
             />
           </div>
         </CardContent>
